@@ -1,5 +1,3 @@
-Pour rendre la documentation plus agréable à lire et à utiliser, voici une version améliorée du `README.md` avec des ajustements sur la mise en forme, des titres plus clairs, et des sections bien définies. J'ai également ajouté quelques sections supplémentaires pour une meilleure clarté :
-
 ```markdown
 # fast-dev-config
 
