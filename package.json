@@ -1,0 +1,25 @@
+{
+  "name": "fast-dev-config",
+  "version": "1.0.0",
+  "description": "About",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dev",
+    "config",
+    "cli",
+    "setup"
+  ],
+  "author": "Lamine Gaye",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^11.0.2"
+  }
+}
