@@ -50,7 +50,7 @@ Voici la suite de votre `README.md` avec des retours à la ligne et des blocs de
 ```markdown
 ## Utilisation
 
-Pour utiliser **fast-dev-config**, exécutez la commande suivante dans votre terminal :
+Pour utiliser **fast-dev-config** , exécutez la commande suivante dans votre terminal :
 
 ```bash
 node src/index.js [options]
