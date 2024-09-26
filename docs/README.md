@@ -1,29 +1,3 @@
-
-   ```markdown
-   ## Étapes d'installation
-   ```
-
-   Chaque titre doit être suivi d'un retour à la ligne.
-
-2. **Espacement des paragraphes :** Assurez-vous d'avoir des retours à la ligne entre les paragraphes. Par exemple, après chaque section ou chaque élément de liste, laissez une ligne vide.
-
-3. **Blocs de code :** Les blocs de code doivent être entourés de trois backticks (```) avant et après. Par exemple :
-
-   ```markdown
-   ```bash
-   git clone https://github.com/gaye-lamine/fast-dev-config.git
-   ```
-   ```
-
-   Assurez-vous que les backticks ne se mélangent pas avec le reste du texte.
-
-4. **Vérifiez le nom du fichier :** Assurez-vous que le fichier s'appelle exactement `README.md` et qu'il est bien placé à la racine de votre dépôt.
-
-5. **Problèmes de mise en cache :** Si vous avez récemment modifié le fichier et que les modifications ne sont pas visibles, essayez de rafraîchir la page ou de vider le cache de votre navigateur.
-
-Voici un exemple de structure améliorée pour votre `README.md` :
-
-```markdown
 # fast-dev-config
 
 **fast-dev-config** est un outil CLI conçu pour configurer rapidement des environnements de développement en générant des fichiers `.env`, `Dockerfile`, et d'autres configurations pour plusieurs langages et bases de données.
@@ -62,13 +36,18 @@ Avant d'installer **fast-dev-config**, assurez-vous d'avoir installé :
    ```bash
    git clone https://github.com/gaye-lamine/fast-dev-config.git
    cd fast-dev-config
+
+   2. Installez les dépendances :
+      ```bash
+      npm install
+      ```
    ```
 
-2. Installez les dépendances :
-   ```bash
-   npm install
-   ```
+3. **Continuer avec les sections suivantes :** Assurez-vous que les sections suivantes, comme "Utilisation", "Contribution", "CHANGELOG", et "Licence", suivent le même formatage.
 
+Voici la suite de votre `README.md` avec des retours à la ligne et des blocs de code correctement formatés :
+
+```markdown
 ## Utilisation
 
 Pour utiliser **fast-dev-config**, exécutez la commande suivante dans votre terminal :
@@ -131,3 +110,7 @@ Merci de vouloir contribuer à **fast-dev-config** ! Voici comment vous pouvez l
 
 Distribué sous la licence ISC. Voir le fichier `LICENSE` pour plus d'informations.
 ```
+
+
+
+
