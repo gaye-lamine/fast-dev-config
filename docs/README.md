@@ -1,3 +1,5 @@
+
+
 # fast-dev-config
 
 **fast-dev-config** est un outil CLI conçu pour configurer rapidement des environnements de développement en générant des fichiers `.env`, `Dockerfile`, et d'autres configurations pour plusieurs langages et bases de données.
@@ -36,21 +38,16 @@ Avant d'installer **fast-dev-config**, assurez-vous d'avoir installé :
    ```bash
    git clone https://github.com/gaye-lamine/fast-dev-config.git
    cd fast-dev-config
-
-   2. Installez les dépendances :
-      ```bash
-      npm install
-      ```
    ```
 
-3. **Continuer avec les sections suivantes :** Assurez-vous que les sections suivantes, comme "Utilisation", "Contribution", "CHANGELOG", et "Licence", suivent le même formatage.
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
 
-Voici la suite de votre `README.md` avec des retours à la ligne et des blocs de code correctement formatés :
-
-```markdown
 ## Utilisation
 
-Pour utiliser **fast-dev-config** , exécutez la commande suivante dans votre terminal :
+Pour utiliser **fast-dev-config**, exécutez la commande suivante dans votre terminal :
 
 ```bash
 node src/index.js [options]
@@ -110,7 +107,3 @@ Merci de vouloir contribuer à **fast-dev-config** ! Voici comment vous pouvez l
 
 Distribué sous la licence ISC. Voir le fichier `LICENSE` pour plus d'informations.
 ```
-
-
-
-
