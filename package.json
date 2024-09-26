@@ -1,0 +1,26 @@
+{
+  "name": "fast-dev-config",
+  "version": "1.0.0",
+  "description": "Outil de configuration rapide pour environnements de développement",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js", 
+    "build": "echo \"Building project...\"",
+    "clean": "rimraf dist"
+}
+,
+  "keywords": [
+    "dev",
+    "config",
+    "cli",
+    "setup"
+  ],
+  "author": "Lamine Gaye",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^11.0.2"
+  }
+}
