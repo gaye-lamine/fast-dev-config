@@ -16,6 +16,3 @@
 
 # fast-dev-config
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Licence](https://img.shields.io/badge/licence-ISC-green)
-![Node](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)
