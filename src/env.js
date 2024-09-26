@@ -4,6 +4,13 @@ import { writeFileSync } from "fs";
 export const askEnvVariables = async (database) => {
     const envQuestions = [
         {
+            type: 'list',
+            name: 'environment',
+            message: 'Sélectionnez l\'environnement :',
+            choices: ['Développement', 'Test', 'Production'],
+            default: 'Développement'
+        },
+        {
             type: 'input',
             name: 'db_host',
             message: 'Entrez l\'hôte de la base de données (par défaut : db) :',
@@ -32,14 +39,21 @@ export const askEnvVariables = async (database) => {
             validate: input => input ? true : 'Le nom de la base de données ne peut pas être vide.'
         }
     ];
+    
     return await inquirer.prompt(envQuestions);
 };
 
 export const generateEnvFile = async (language, database) => {
     const envAnswers = await askEnvVariables(database);
-    const content = `LANGUAGE=${language}\nDATABASE=${database}\n` +
-        Object.entries(envAnswers).map(([key, value]) => `${key.toUpperCase()}=${value}`).join('\n') + '\n';
+    
+    // Inclure l'environnement sélectionné dans le fichier .env
+    const content = `LANGUAGE=${language}\nDATABASE=${database}\nENVIRONMENT=${envAnswers.environment}\n` +
+        Object.entries(envAnswers)
+        .filter(([key]) => key !== 'environment')  // Exclure l'environnement des autres variables
+        .map(([key, value]) => `${key.toUpperCase()}=${value}`)
+        .join('\n') + '\n';
     
     writeFileSync('.env', content);
-    console.log('Fichier .env créé avec succès.');
+    console.log(`Fichier .env créé avec succès pour l'environnement ${envAnswers.environment}.`);
 };
+
