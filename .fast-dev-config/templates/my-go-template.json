@@ -1,0 +1,10 @@
+{
+  "name": "my-go-template",
+  "created": "2025-08-28T13:46:53.444Z",
+  "config": {
+    "language": "Go",
+    "database": "MySQL",
+    "framework": "Fiber",
+    "fileType": ".env"
+  }
+}

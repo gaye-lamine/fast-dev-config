@@ -24,7 +24,6 @@ export const generateDockerfile = async (language, database) => {
     const envAnswers = await askEnvVariables(database);
     let content = getDockerfileContent(language);
     
-    // Ajouter des variables d'environnement pour la base de données
     content += `\n# Variables d'environnement pour ${database}\nENV DB_HOST=${envAnswers.db_host}\nENV DB_USER=${envAnswers.db_user || 'root'}\nENV DB_PASS=${envAnswers.db_pass || 'password'}\nENV DB_NAME=${envAnswers.db_name || 'my_database'}\n`;
 
     writeFileSync('Dockerfile', content);

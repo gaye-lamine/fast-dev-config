@@ -9,10 +9,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js", 
+    "start": "node src/index.js",
+    "web": "node web/server.js",
+    "dev": "node src/index.js",
     "build": "echo \"Building project...\"",
-    "clean": "rimraf dist" 
-},
+    "clean": "rimraf dist"
+  },
   "keywords": [
     "dev",
     "config",
@@ -22,7 +24,9 @@
   "author": "Lamine Gaye",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.3.0",
     "commander": "^12.1.0",
-    "inquirer": "^11.0.2"
+    "express": "^4.18.2",
+    "inquirer": "^11.1.0"
   }
 }

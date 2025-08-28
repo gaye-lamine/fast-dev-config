@@ -40,17 +40,15 @@ export const configurations = {
         ciCD: true
     },
     "Java": {
-        version: "17", // Dernière version LTS stable
+        version: "17",
         packageManager: "maven",
         envFile: true,
         dockerFile: true,
         readme: true,
         ciCD: true
     },
-    // Ajoutez d'autres langages ici
 };
 
-// Fonction pour récupérer la configuration d'un langage
 export const getConfiguration = (language) => {
     return configurations[language];
 };

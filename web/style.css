@@ -1,0 +1,249 @@
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+
+.database-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.database-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.database-card input[type="radio"]:checked + div {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.database-card input[type="radio"]:checked {
+    display: none;
+}
+
+.database-card:has(input[type="radio"]:checked) {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+
+.file-checkbox {
+    transition: all 0.3s ease;
+}
+
+.file-checkbox:has(input[type="checkbox"]:checked) {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+
+.progress-step {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.progress-step.active::before {
+    left: 100%;
+}
+
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+    background-color: #1f2937;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #374151;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(31, 41, 55, 0.3);
+}
+
+
+.compatibility-alert {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid #f59e0b;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+
+.generated-file-item {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 4px 0;
+    border-left: 3px solid #3b82f6;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.generated-file-item:nth-child(even) {
+    background-color: rgba(31, 41, 55, 0.05);
+    border-left-color: #1f2937;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .md\\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.custom-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f4f6;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid #3b82f6;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #3b82f6; }
+}
+
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .bg-gray-50 {
+        background-color: #0f172a;
+    }
+    
+    .bg-white {
+        background-color: #1e293b;
+    }
+    
+    .text-gray-800 {
+        color: #f1f5f9;
+    }
+    
+    .text-gray-600 {
+        color: #94a3b8;
+    }
+    
+    .border-gray-300 {
+        border-color: #475569;
+    }
+}

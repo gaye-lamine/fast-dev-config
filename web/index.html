@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Dev Config - Générateur Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .primary-bg {
+            background-color: #3b82f6;
+        }
+        .dark-bg {
+            background-color: #1f2937;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .step-active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .step-completed {
+            background-color: #1f2937;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+        .btn-secondary {
+            background-color: #1f2937;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="dark-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-rocket text-2xl text-blue-400"></i>
+                    <h1 class="text-3xl font-bold">Fast Dev Config</h1>
+                </div>
+                <div class="text-sm text-gray-300">
+                    Générateur d'environnement de développement
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center space-x-8">
+                <div class="flex items-center space-x-2 step-active rounded-full px-4 py-2" id="step-1">
+                    <span class="w-6 h-6 rounded-full bg-white bg-opacity-20 flex items-center justify-center text-sm font-bold">1</span>
+                    <span>Configuration</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-200 text-gray-600 rounded-full px-4 py-2" id="step-2">
+                    <span class="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-sm font-bold text-white">2</span>
+                    <span>Génération</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-200 text-gray-600 rounded-full px-4 py-2" id="step-3">
+                    <span class="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center text-sm font-bold text-white">3</span>
+                    <span>Téléchargement</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container mx-auto px-4 py-8">
+
+        <div id="config-step" class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-cog text-blue-500 mr-3"></i>
+                    Configuration de votre projet
+                </h2>
+
+                <form id="config-form" class="space-y-6">
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-folder mr-2"></i>Nom du projet
+                            </label>
+                            <input type="text" id="projectName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="mon-super-projet" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-code mr-2"></i>Langage de programmation
+                            </label>
+                            <select id="language" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                <option value="">Choisissez un langage</option>
+                                <option value="Node.js">Node.js</option>
+                                <option value="Python">Python</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Go">Go</option>
+                                <option value="Ruby">Ruby</option>
+                                <option value="Java">Java</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-layer-group mr-2"></i>Framework (optionnel)
+                        </label>
+                        <select id="framework" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="Aucun">Aucun framework</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-database mr-2"></i>Base de données
+                        </label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="MySQL" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-database text-orange-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">MySQL</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="PostgreSQL" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-elephant text-blue-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">PostgreSQL</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="MongoDB" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-leaf text-green-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">MongoDB</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="Redis" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-memory text-red-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">Redis</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="SQLite" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-file-alt text-gray-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">SQLite</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="Firebase" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-fire text-yellow-500 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">Firebase</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 card-hover transition-all">
+                                <input type="radio" name="database" value="Aucune" class="mr-3">
+                                <div class="text-center">
+                                    <i class="fas fa-times text-gray-400 text-xl mb-1"></i>
+                                    <div class="text-sm font-medium">Aucune</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-file-code mr-2"></i>Fichiers à générer
+                        </label>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="files" value="env" class="mr-3" checked>
+                                <div>
+                                    <div class="font-medium">.env</div>
+                                    <div class="text-sm text-gray-500">Variables d'environnement</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="files" value="dockerfile" class="mr-3" checked>
+                                <div>
+                                    <div class="font-medium">Dockerfile</div>
+                                    <div class="text-sm text-gray-500">Configuration Docker</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="files" value="readme" class="mr-3" checked>
+                                <div>
+                                    <div class="font-medium">README.md</div>
+                                    <div class="text-sm text-gray-500">Documentation</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="files" value="docker-compose" class="mr-3">
+                                <div>
+                                    <div class="font-medium">docker-compose.yml</div>
+                                    <div class="text-sm text-gray-500">Services multiples</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-cloud mr-2"></i>Options de déploiement
+                        </label>
+                        <select id="deployment" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="Aucune">Aucune</option>
+                            <option value="Docker Compose">Docker Compose</option>
+                            <option value="Heroku">Heroku</option>
+                            <option value="AWS">AWS</option>
+                            <option value="CI/CD">CI/CD (GitHub Actions)</option>
+                        </select>
+                    </div>
+
+
+                    <div class="flex justify-center pt-6">
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                            <i class="fas fa-magic"></i>
+                            <span>Générer la configuration</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Step 2: Generation (Hidden initially) -->
+        <div id="generation-step" class="max-w-4xl mx-auto hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-cogs text-blue-500 mr-3"></i>
+                    Génération en cours...
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3" id="progress-env">
+                        <div class="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                        <span>Génération du fichier .env...</span>
+                    </div>
+                    <div class="flex items-center space-x-3 opacity-50" id="progress-docker">
+                        <div class="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+                        <span>Génération du Dockerfile...</span>
+                    </div>
+                    <div class="flex items-center space-x-3 opacity-50" id="progress-readme">
+                        <div class="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+                        <span>Génération du README.md...</span>
+                    </div>
+                    <div class="flex items-center space-x-3 opacity-50" id="progress-complete">
+                        <div class="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+                        <span>Création de l'archive...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Download (Hidden initially) -->
+        <div id="download-step" class="max-w-4xl mx-auto hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                <div class="mb-6">
+                    <i class="fas fa-check-circle text-blue-500 text-6xl mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Configuration générée avec succès !</h2>
+                    <p class="text-gray-600">Votre environnement de développement est prêt</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                    <h3 class="font-medium text-gray-800 mb-4">Fichiers générés :</h3>
+                    <div id="generated-files" class="space-y-2 text-sm text-gray-600">
+                        <!-- Files list will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <button id="download-btn" class="btn-primary px-8 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2 mx-auto">
+                        <i class="fas fa-download"></i>
+                        <span>Télécharger le projet</span>
+                    </button>
+                    
+                    <button id="new-config-btn" class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        Nouvelle configuration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dark-bg text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Fast Dev Config - Créé par Lamine Gaye</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
